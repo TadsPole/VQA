@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="PYTHON_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/Annotations/mscoco" />
+      <excludeFolder url="file://$MODULE_DIR$/Questions/abstract" />
+      <excludeFolder url="file://$MODULE_DIR$/vqaTools" />
+      <excludeFolder url="file://$MODULE_DIR$/Questions" />
+      <excludeFolder url="file://$MODULE_DIR$/PythonHelperTools" />
+      <excludeFolder url="file://$MODULE_DIR$/Images" />
+      <excludeFolder url="file://$MODULE_DIR$/Annotations" />
+    </content>
+    <orderEntry type="jdk" jdkName="Python 3.9 (tf2.1)" jdkType="Python SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PyDocumentationSettings">
+    <option name="renderExternalDocumentation" value="true" />
+  </component>
+</module>
