@@ -87,12 +87,12 @@ class VQA_v1Collate:
         self.config = config
 
     def __call__(self, batch_samples):
-        batch_question, batch_img, batch_positive, batch_negative = [], [], [], []
+        batch_question, batch_img, batch_answer,batch_choices = [], [], [], []
         for sample in batch_samples:
             batch_question.append(sample['question'])
             batch_img.append(Image.open(sample['image']).convert('RGB'))
-            batch_positive.append(sample['answer'])
-            batch_negative.append(sample['multiple_choices'])
+            batch_answer.append(sample['answer'])
+            batch_choices.append(sample['multiple_choices'])
 
         multi_input = self.multi_processor(text=batch_question,
                                            images=batch_img,
@@ -103,14 +103,14 @@ class VQA_v1Collate:
         labels = []
         for i in range(len(batch_question)):
             temp = [1]
-            for _ in range(len(batch_negative[i])):
+            for _ in range(len(batch_choices[i])):
                 temp.append(0)
             labels.append(temp)
         labels = torch.tensor(labels, dtype=int)
         return multi_input, labels
 
 
-def getVisual7wDataLoader(config: VQA_v1Config=VQA_v1Config()) \
+def getVQA_v1DataLoader(config: VQA_v1Config=VQA_v1Config()) \
         -> Tuple[DataLoaderX, DataLoaderX, DataLoaderX]:
     train_dataset = VQA_v1Dataset('mscoco','train')
     val_dataset = VQA_v1Dataset('mscoco','val')
